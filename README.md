@@ -21,6 +21,19 @@ ShelfIQ Enterprise is a state-of-the-art inventory optimization and demand forec
 
 ---
 
+## Security Features
+
+ShelfIQ Enterprise is built with multi-tenant enterprise security patterns to safeguard business data:
+
+*   **Secure Authentication**: Secure login portal requiring both email and password validation.
+*   **Cryptographic Password Hashing**: Passwords are never stored in plain text; they are secured using strong **SHA-256** cryptographic hashing.
+*   **Token-Based API Authorization**: Stateless communication protected by **JWT (JSON Web Tokens)** containing user metadata (`uid`, `email`, `role`, `store_id`) with 24-hour expiration limits.
+*   **Role-Based Access Control (RBAC)**: Custom API decorators (`require_store_manager`, `require_admin`, etc.) enforce fine-grained access rules at the FastAPI routing layer.
+*   **Data Scoping & Isolation**: Row-level filtering dynamically queries database records based on the user's `store_id` (Sarah only sees/edits `STORE_A` grocery inventory; Mike only sees/edits `STORE_B` warehouse inventory).
+*   **Parameterized DB Queries**: Built entirely with SQLAlchemy ORM using parameterized bindings to prevent SQL Injection (SQLi) vulnerabilities.
+
+---
+
 ## System Workflows & Screenshots
 
 ### Dashboard Overview
