@@ -45,7 +45,7 @@ jobs:
 
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
-        if: ${{ secrets.WIF_POOL_ID != '' }}
+        if: secrets.WIF_POOL_ID != ''
         uses: 'google-github-actions/auth@v2'
         with:
           workload_identity_provider: 'projects/${{ vars.GCP_PROJECT_NUMBER }}/locations/global/workloadIdentityPools/${{ secrets.WIF_POOL_ID }}/providers/${{ secrets.WIF_PROVIDER_ID }}'
@@ -54,7 +54,7 @@ jobs:
           project_id: ${{ vars.CICD_PROJECT_ID }}
 
       - name: Set up Cloud SDK
-        if: ${{ secrets.WIF_POOL_ID != '' }}
+        if: secrets.WIF_POOL_ID != ''
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           install_components: 'beta'
@@ -66,11 +66,11 @@ jobs:
         run: uv run pytest tests/unit
 
       - name: Run load test
-        if: ${{ secrets.WIF_POOL_ID != '' }}
+        if: secrets.WIF_POOL_ID != ''
         run: |
 
       - name: Export Load Test Results to GCS
-        if: ${{ secrets.WIF_POOL_ID != '' }}
+        if: secrets.WIF_POOL_ID != ''
         run: |
           TIMESTAMP=$(date +%Y%m%d-%H%M%S)
           gcloud storage cp --recursive tests/load_test/.results gs://${{ vars.LOGS_BUCKET_NAME_STAGING }}/load-test-results/results-${TIMESTAMP} --quiet
@@ -81,7 +81,7 @@ jobs:
 
   call_production_workflow:
     needs: deploy_and_test_staging
-    if: ${{ secrets.WIF_POOL_ID != '' }}
+    if: secrets.WIF_POOL_ID != ''
     uses: ./.github/workflows/deploy-to-prod.yaml
     permissions:
       contents: 'read'
