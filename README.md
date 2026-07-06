@@ -1,4 +1,4 @@
-# ShelfIQ Enterprise 📊🤖
+# ShelfIQ Enterprise
 
 **AI-Powered Multi-Agent Inventory Intelligence Command Center for Modern Retail Operations.**
 
@@ -6,7 +6,7 @@ ShelfIQ Enterprise is a state-of-the-art inventory optimization and demand forec
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 *   **Role-Based Access Control (RBAC)**: Secure user login system that controls what a user sees and can do based on their role and assigned branch.
 *   **Store-Scoped Data views**: 
@@ -21,31 +21,31 @@ ShelfIQ Enterprise is a state-of-the-art inventory optimization and demand forec
 
 ---
 
-## 🎨 System Workflows & Screenshots
+## System Workflows & Screenshots
 
-### 🖥️ Dashboard Overview
+### Dashboard Overview
 Below is the modern glassmorphic Executive Dashboard showing high-priority alerts, financial tracking, and automated inventory recommendations:
 
 ![Executive Dashboard](docs/images/dashboard.png)
 
-### 🔄 System Architecture
+### System Architecture
 ShelfIQ is architected with a decoupled frontend and a multi-agent orchestrator backend hooked to a local MySQL server:
 
 ![System Architecture](docs/images/architecture.png)
 
-### 🤖 Multi-Agent Collaboration Workflow
+### Multi-Agent Collaboration Workflow
 Our AI agents work in parallel to check stock, cross-reference supplier prices, forecast future sales, and prepare draft PO recommendations:
 
 ![Agent Workflow](docs/images/agent_flow.png)
 
-### 📦 Order & stock Lifecycle
+### Order & Stock Lifecycle
 From initial critical warning flags to custom PO drafting, manager confirmation, database logging, and stock level incrementation:
 
 ![Workflows Diagram](docs/images/workflows.png)
 
 ---
 
-## 🛠️ Architecture & Tech Stack
+## Architecture & Tech Stack
 
 ### Frontend
 *   **React 18** with **TypeScript** & **Vite**
@@ -65,7 +65,7 @@ From initial critical warning flags to custom PO drafting, manager confirmation,
 
 ---
 
-## 📦 Database Schema (MySQL DDL)
+## Database Schema (MySQL DDL)
 
 The database schema consists of 6 primary tables:
 1.  `users`: Stores email, role, and store scope.
@@ -78,7 +78,7 @@ The database schema consists of 6 primary tables:
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Backend Setup
 
@@ -126,7 +126,7 @@ You can use the **Demo Accounts** panel on the login page to auto-fill these cre
 
 ---
 
-## 📝 GitHub Actions workflow (CI/CD)
+## GitHub Actions workflow (CI/CD)
 
 The repository comes pre-packaged with a `.github/workflows/main.yml` CI/CD file to lint code and verify that the backend tests pass successfully.
 
