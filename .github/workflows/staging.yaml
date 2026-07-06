@@ -67,8 +67,7 @@ jobs:
 
       - name: Run load test
         if: secrets.WIF_POOL_ID != ''
-        run: |
-
+        run: echo "Running load test..."
       - name: Export Load Test Results to GCS
         if: secrets.WIF_POOL_ID != ''
         run: |
